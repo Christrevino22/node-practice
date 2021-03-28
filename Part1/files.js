@@ -31,16 +31,16 @@ const fs = require('fs');
 
 
 //DIRECTORIES
-if(!fs.existsSync('./assets')) {
+if(!fs.existsSync('./views')) {
 
-  fs.mkdir('./assets', (err) => {
+  fs.mkdir('./views', (err) => {
     if(err) {
       console.log(err)
     }
     console.log('folder was created')
   })
 } else {
-  fs.rmdir('./assets', (err)=> {
+  fs.rmdir('./views', (err)=> {
     if(err) {
       console.log(err)
     }
@@ -50,11 +50,11 @@ if(!fs.existsSync('./assets')) {
 
 //DELETING FILES
 
-if(fs.existsSync('./docs/deleteme.txt')) {
-  fs.unlink('./docs/deleteme.txt', (err) => {
-    if (err) {
-      console.log(err)
-    }
-    console.log('file deleted')
-  })
-}
+// if(fs.existsSync('./docs/deleteme.txt')) {
+//   fs.unlink('./docs/deleteme.txt', (err) => {
+//     if (err) {
+//       console.log(err)
+//     }
+//     console.log('file deleted')
+//   })
+// }

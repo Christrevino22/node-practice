@@ -1,7 +1,27 @@
 const http = require('http');
+const fs = require('fs')
+
 
 const server = http.createServer((req, res) => {
-  console.log(req);
+  console.log(req.url, req.method);
+
+  //set header content type
+  res.setHeader('Content-Type', 'text/html');
+
+    fs.readFile('./views/inde.html', (err,data) => {
+      if (err) {
+        console.log(err)
+        res.end()
+        } else {
+          // res.write(data);
+           res.end(data)
+      }
+    })
+  // res.write('<head><link rel="stylesheet"href="#"></head>');
+  // res.write('<p>Hello ninjas</p>');
+  // res.write('<p>Hello a gain ninjas</p>');
+
+  // res.end();
 })
 
 server.listen(3000, 'localhost', () => {
