@@ -12,12 +12,26 @@ app.listen(3000);
 //SECOND IS SENDING A HTML FILE
 app.get("/", (req, res) => {
   // res.send('THIS IS COMING FROM EXPRESS YOU TRICK!!!')
-  res.render("index");
+  const blogs = [
+    // {
+    //   title: "Yoshi finds eggs",
+    //   snippet: "lorem ipsum dolor sit amet consectetur",
+    // },
+    // {
+    //   title: "Mario finds stars",
+    //   snippet: "lorem ipsum dolor sit amet consectetur",
+    // },
+    // {
+    //   title: "How to defeat bowser",
+    //   snippet: "lorem ipsum dolor sit amet consectetur",
+    // },
+  ];
+  res.render("index", { title: "Home", blogs });
 });
 
 app.get("/about", (req, res) => {
   // res.send('THIS IS MY ABOUT PAGE TRICK!!!')
-  res.render("about");
+  res.render("about", { title: "About" });
 });
 
 //REDIRECTS
@@ -25,12 +39,12 @@ app.get("/about", (req, res) => {
 //   res.redirect('/about');
 // })
 app.get("/blogs/create", (req, res) => {
-  res.render("create");
+  res.render("create", { title: "Create a new blog" });
 });
 
 //HADNLEING 404 PAGE
 app.use((req, res) => {
-  res.status(404).render("404");
+  res.status(404).render("404", { title: "404 Error" });
 });
 
 //WE ARE BAsically doing the same thing is both files
